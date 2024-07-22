@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
-import { password, username, database } from "./config.js";
+import { password, username, database, port } from "./config.js";
+import router from "./src/routers/todoRouter.js";
 
 const app = express();
 
@@ -15,8 +16,8 @@ mongoose
     console.log(err);
   });
 
-app.listen(5000, () => {});
+app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("Hello world");
-});
+app.use("/", router);
+
+app.listen(port, () => {});
