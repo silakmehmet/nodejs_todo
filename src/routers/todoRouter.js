@@ -1,25 +1,22 @@
 import { Router } from "express";
+import {
+  listTodo,
+  createTodo,
+  updateTodo,
+  getTodo,
+  deleteTodo,
+} from "../controllers/todoController.js";
 
 const router = Router();
 
-router.get("/", (req, res) => {
-  res.send("todos");
-});
+router.get("/", listTodo);
 
-router.post("/", (req, res) => {
-  res.send("created");
-});
+router.post("/", createTodo);
 
-router.put("/:id", (req, res) => {
-  res.send(`${req.params.id} updated`);
-});
+router.put("/:id", updateTodo);
 
-router.delete("/:id", (req, res) => {
-  res.send(`${req.params.id} deleted`);
-});
+router.delete("/:id", deleteTodo);
 
-router.get("/:id", (req, res) => {
-  res.send(`${req.params.id} todo get`);
-});
+router.get("/:id", getTodo);
 
 export default router;

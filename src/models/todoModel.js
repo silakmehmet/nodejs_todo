@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-import { database } from "../../config";
+import { database } from "../../config.js";
 
 const todoSchema = new Schema({
   title: {
